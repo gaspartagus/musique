@@ -1,0 +1,480 @@
+@font-face {
+	font-family: Futura;
+	src: url('CanalLightRomain2012.otf');
+}
+
+
+body {
+	background-color: rgb(44, 44, 44);
+	text-align:center;
+	font-family: Futura;
+	color: white;
+	text-decoration: none;
+	color: inherit;
+	z-index: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+.mainstyle {
+	font-family: Futura;
+	color: #4F4F4F;
+}
+#left{
+	position: fixed;
+	left: 0;
+    opacity: 0.7;
+	top: 23%;
+	z-index: -1;
+}
+#left.nav{
+	z-index: 1;
+	opacity: 1;
+}
+.menu_item_old{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 0 100px 173.2px;
+    border-color: transparent transparent transparent rgba(182, 56, 56, 0.5);
+}
+.menu_item{
+    color: white;
+    text-transform: uppercase;
+    padding: 92px 1.8em;
+    margin: 0;
+    text-align: left;
+    position: relative;
+    /* top: -1.6em; */
+    /* left: -10em; */
+    width: 181.2px;
+    font-size: 14pt;
+    background: url('fond05.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+}
+.menu_item.hover{
+    background-image: url('fond1.png');
+}
+#menu_out{
+    position: absolute;
+    width: 1em;
+    height: 25em;
+    /* background-color: white; */
+    top: 0;
+    left: 15em;
+}
+#center{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+    top: 0;
+	text-align: center;
+	overflow-y: auto;
+	box-sizing: border-box;
+	left: 0;
+	z-index: 0;
+}
+.scroll_view{
+    width: 100%;
+
+    min-height: 100%;
+}
+.artists_container{
+	padding: 0 2em;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	/* overflow: auto; */
+}
+.filter{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 4;
+	background-color: rgba(0, 0, 0, 0.37);
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.filter.actif{
+	/* z-index: 4; */
+	opacity: 1;
+}
+.titre{
+	font-size: 24pt;
+	margin: 1em 1em;
+	text-align: left;
+	color: rgb(228, 228, 228);
+	text-transform: uppercase;
+}
+#planet_view{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.menu_in{
+    position: absolute;
+	
+    left: -2em;
+    top: 0;
+    width: 1em;
+    height: 100%;
+    background-color: white;
+}
+.planet {
+	position: absolute;
+	border: rgba(41, 38, 38, 1) 1px solid;
+	/* box-shadow: rgba(0, 0, 0, 0.58) 0 0 36px; */
+	overflow: hidden;
+	/* text-shadow: black 0 0 3px; */
+	color: white;
+	/* opacity: 0.9; */
+	z-index: 16;
+}
+.planet.hover p{
+	color: rgb(231, 82, 82);
+	background-color: rgba(44, 44, 44, 0.93);
+}
+.tag{
+	background-color: rgb(60, 60, 60);
+	overflow: hidden;
+	position: relative;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.tag p{
+	margin: 47% auto;
+	text-align: center;
+	background-color: rgba(44, 44, 44, 0.43);
+}
+.program{
+	display: inline-table;
+	width: 14em;
+	height: 8em;
+	font-size: 15pt;
+	position: relative;
+	margin: 1em;
+	text-transform: uppercase;
+	/* float: left; */
+}
+.program img{
+	width: 100%;
+}
+.program p{
+	text-align: left;
+	margin-top: 1em;
+	color: rgb(165, 165, 165);
+}
+
+.lien_cover{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+	z-index: 12;
+}
+.program .vignette{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: rgb(60, 60, 60);
+	background-position: top center;
+	width:100%;
+	height: 9em;
+	position: relative;
+	overflow: hidden;
+}
+.heure{
+	position: absolute;
+	bottom: -1em;
+	/* left: 1.5em; */
+	font-size: 19pt;
+	color: white !important;
+	text-shadow: black 0 0 3px;
+	width: 100%;
+	background-color: rgba(53, 53, 53, 0.73);
+	padding: 0 0 0em 1.5em;
+	/* box-sizing: border-box; */
+}
+.chaine{
+	color: lightgrey;
+	font-size: 15pt;
+}
+.tile{
+	display: inline-table;
+	font-size: 15pt;
+	color: rgba(228, 228, 228, 0.79);
+	text-transform: uppercase;
+    position: absolute;
+	overflow: hidden;
+	/* box-shadow: 0 0 10px black; */
+	/* display: none; */
+	z-index: 453;
+}
+.tile.hover p{
+	height: 106%;
+}
+.tile.hover .action {
+	opacity: 0.7;
+}
+.tile img{
+	width: 100%;
+}
+.tile p{
+	color: inherit;
+	position: absolute;
+	bottom: -0.2em;
+	left: 0em;
+	margin: 0;
+	/* text-shadow: 0 0 9px black; */
+	width: 100%;
+	background-color: rgba(44, 44, 44, 0.43);
+	text-align: left;
+	margin-top: 1em;
+}
+.tile .vignette{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: rgb(60, 60, 60);
+	background-position: top center;
+	width:100%;
+	height: 9em;
+	position: static;
+	overflow: hidden;
+}
+.tile.selected{
+	z-index: 5;
+}
+.tile.selected p{
+	height: 103%;
+}
+.tile.selected .action {
+	opacity: 0.7;
+}
+.action{
+	position: absolute;
+	width: 29%;
+	height: 37%;
+	bottom: 12%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	opacity: 0;
+}
+.tile.selected .action.hover {
+	opacity: 1 !important;
+}
+.like{
+	background-image: url('star_blanc.png');
+	left: 18%;
+}
+.starred{
+	color: rgb(231, 173, 23) !important;
+}
+.fiche{
+	background-image: url('fiche_blanc.png');
+	left: 56%;
+	bottom: 9%;
+}
+.section{
+    margin: auto;
+
+    width: 77%;
+    padding: 2em 6em 0em;
+    background-color: rgb(75, 75, 75);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* overflow: auto; */
+    min-height: 100%;
+}
+.description_container{
+    max-width: 56%;
+	
+    display: inline-block;
+    /* float: left; */
+    min-width: 50%;
+}
+.artist_name{
+    margin: 0 0 0em 1em;
+    font-size: 29pt;
+    color: rgb(240, 240, 240);
+    /* text-shadow: rgba(0, 0, 0, 0.25) 0 0 14px; */
+    text-transform: uppercase;
+    text-align: left;
+}
+.artist_pic{
+    /* float: right; */
+    /* margin: 0.1em 1em; */
+    /* max-width: 56%; */
+    filter: blur;
+    filter: blur();
+    min-width: 441px;
+}
+.bio{
+    color: rgb(255, 255, 255);
+    font-family: Verdana;
+    position: relative;
+    display: inline-block;
+    text-align: justify;
+    float: left;
+    overflow: hidden;
+    /* width: 100%; */
+}
+.bio.hover .resume{
+	opacity: 1;
+}
+.resume{
+	/* opacity: 0; */
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding: 1em;
+	background-color: rgba(100, 100, 100, 0.83);
+	text-shadow: 0 0 7px black;
+	/* max-height: 79%; */
+	/* overflow: auto; */
+	opacity: 0;
+}
+.progs{
+    margin: 3em 0;
+
+    /* overflow: auto; */
+}
+.prog_name{
+    font-size: 18pt;
+
+    margin: 0.5em auto;
+}
+.chaine{
+    margin: 0.5em auto !important;
+	
+}
+.youtube_container{
+	background-color: black;
+	width: 100%;
+	margin: 8em 0;
+	/* box-sizing: border-box; */
+	height: 548px;
+	position: absolute;
+	z-index: 1;
+}
+.youtube{
+	margin: 0 11.5%;
+}
+.youtube_progs{
+    margin: 46em 0 0 0;
+}
+.canvas{
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 16;
+	display: none;
+}
+.section .program.hover{
+	box-shadow: 0 0 10px black;
+}
+.program.hover .genres{
+	opacity: 1;
+}
+.you{
+    display: block;
+
+    width: 100%;
+}
+.bddp{
+    display: inline-block;
+	
+    float: right;
+    max-width: 37%;
+}
+.patchwork{
+    display: inline-block;
+    position: absolute;
+    background-size: cover;
+	
+    background-position: top center;
+}
+.demiArtiste{
+    width: 50%;
+    height: 100%;
+    left: 0;
+}
+.demiArtiste2{
+    width: 50%;
+    height: 100%;
+}
+.quartArtiste{
+    width: 50%;
+    height: 50%;
+}
+.genres{
+    position: absolute;
+    background-color: rgba(53, 53, 53, 0.73);
+    top: 5.2em;
+    height: 1.3em;
+    overflow: hidden;
+    font-size: 17pt;
+    width: 200%;
+    padding: 0 1.5em;
+    box-sizing: border-box;
+    opacity: 0;
+}
+.genres p{
+    padding: 0;
+	
+    margin: 0;
+    width: 200%;
+    overflow: hidden;
+    color: rgb(175, 175, 175);
+}
+.loading{
+    z-index: 13;
+    position: absolute;
+    top: 45%;
+    left: 48%;
+    width: 4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Musique +</title>
+
+        <!-- The main CSS file -->
+		<link href="/style.css" rel="stylesheet" />
+		
+    </head>
+    
+    <body>
+    	<div id="left">
+    		<p id="nom_chaine">Musique +</p>
+    		<a class="menu_left" href="/categories">CATEGORIES</a>
+    		<a class="menu_left">FAVORIS</a>
+    	</div>
+    	<div id="center">
+    		<h1 id="featured" class="titre">PLANETE MUSIQUE</h1>
+            <div id="planetView">
+
+
+    		</div>
+    	</div>    	
+        <script id="planetTemplate" type="text/template">
+            <a href="/tags/<%= tag %>" id="<%= id %>" class="tag" style="
+                width: <%= masse*6 + 90 %>px;
+                height: <%= masse*6 + 90 %>px;
+                font-size: <%= masse/1.5 + 10 %>pt;
+                background-image: url('<%= image %>');
+                /*box-shadow: rgba(255, 255, 255, 0.47) 0 -<%= masse/4 %>px <%= masse %>px inset;*/
+                ">
+                <p>
+                    <%= tag.toUpperCase() %>
+                </p>
+            </a>
+        </script>
+
+		<!-- JavaScript Includes -->
+		<script src="/jquery-2.1.1.js"></script>
+		<script src="/underscore.js"></script>
+		<script src="/backbone.js"></script>
+		<script src="/planets.js"></script>
+
+    </body>
+</html>
+

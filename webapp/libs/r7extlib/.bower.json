@@ -1,0 +1,15 @@
+{
+  "name": "r7extlib",
+  "homepage": "https://github.com/canalplus/r7extlib",
+  "version": "0.1.0",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "ecf4ea50445f911a7d9dbf36bf42c8c4dd26ba65"
+  },
+  "_source": "git://github.com/canalplus/r7extlib.git",
+  "_target": "~0.1.0",
+  "_originalSource": "git://github.com/canalplus/r7extlib.git",
+  "_direct": true
+}

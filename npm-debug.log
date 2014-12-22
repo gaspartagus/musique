@@ -1,0 +1,87 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'rx.lite' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose config Skipping project config: /Users/gaspard/.npmrc. (matches userconfig)
+5 warn package.json match@1.0.0 No README data
+6 warn package.json eyes@0.1.8 No repository field.
+7 warn package.json querystring@0.2.0 querystring is also the name of a node core module.
+8 warn package.json sylvester@0.0.21 No repository field.
+9 verbose cache add [ 'rx.lite', null ]
+10 verbose cache add name=undefined spec="rx.lite" args=["rx.lite",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'rx.lite',
+11 verbose parsed url   path: 'rx.lite',
+11 verbose parsed url   href: 'rx.lite' }
+12 silly lockFile 2570e4c5-rx-lite rx.lite
+13 verbose lock rx.lite /Users/gaspard/.npm/2570e4c5-rx-lite.lock
+14 silly lockFile 2570e4c5-rx-lite rx.lite
+15 silly lockFile 2570e4c5-rx-lite rx.lite
+16 verbose addNamed [ 'rx.lite', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile e9c6d1fd-rx-lite rx.lite@
+19 verbose lock rx.lite@ /Users/gaspard/.npm/e9c6d1fd-rx-lite.lock
+20 silly addNameRange { name: 'rx.lite', range: '*', hasData: false }
+21 verbose request where is /rx.lite
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id 89c7c8fafad55258
+24 verbose url raw /rx.lite
+25 verbose url resolving [ 'https://registry.npmjs.org/', './rx.lite' ]
+26 verbose url resolved https://registry.npmjs.org/rx.lite
+27 verbose request where is https://registry.npmjs.org/rx.lite
+28 info trying registry request attempt 1 at 17:43:22
+29 http GET https://registry.npmjs.org/rx.lite
+30 http 404 https://registry.npmjs.org/rx.lite
+31 verbose headers { date: 'Fri, 21 Nov 2014 16:43:22 GMT',
+31 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 verbose headers   'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=0',
+31 verbose headers   'content-length': '52',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   age: '0',
+31 verbose headers   'x-served-by': 'cache-lcy1126-LCY',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1416588201.980072,VS0,VE662',
+31 verbose headers   'keep-alive': 'timeout=10, max=50',
+31 verbose headers   connection: 'Keep-Alive' }
+32 silly registry.get cb [ 404,
+32 silly registry.get   { date: 'Fri, 21 Nov 2014 16:43:22 GMT',
+32 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'cache-control': 'max-age=0',
+32 silly registry.get     'content-length': '52',
+32 silly registry.get     'accept-ranges': 'bytes',
+32 silly registry.get     via: '1.1 varnish',
+32 silly registry.get     age: '0',
+32 silly registry.get     'x-served-by': 'cache-lcy1126-LCY',
+32 silly registry.get     'x-cache': 'MISS',
+32 silly registry.get     'x-cache-hits': '0',
+32 silly registry.get     'x-timer': 'S1416588201.980072,VS0,VE662',
+32 silly registry.get     'keep-alive': 'timeout=10, max=50',
+32 silly registry.get     connection: 'Keep-Alive' } ]
+33 silly lockFile e9c6d1fd-rx-lite rx.lite@
+34 silly lockFile e9c6d1fd-rx-lite rx.lite@
+35 error 404 404 Not Found: rx.lite
+35 error 404
+35 error 404 'rx.lite' is not in the npm registry.
+35 error 404 You should bug the author to publish it
+35 error 404
+35 error 404 Note that you can also install from a
+35 error 404 tarball, folder, or http url, or git url.
+36 error System Darwin 14.0.0
+37 error command "node" "/usr/local/bin/npm" "install" "rx.lite"
+38 error cwd /Users/gaspard/Projects/canalplus/musique/server
+39 error node -v v0.10.33
+40 error npm -v 1.4.28
+41 error code E404
+42 verbose exit [ 1, true ]

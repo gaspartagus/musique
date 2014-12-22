@@ -1,0 +1,13 @@
+{
+  "laxbreak": true,
+  "eqnull": true,
+  "undef": true,
+  "browser": true,
+  "devel": true,
+  "trailing": true,
+  "mocha": true,
+  "strict": false,
+  "predef": [
+    "require", "module", "__DEV__", "__VERSION_PLACEHOLDER__"
+  ]
+}

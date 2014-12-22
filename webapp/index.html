@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Musique +</title>
+
+        <!-- The main CSS file -->
+        <link href="css/style.css" rel="stylesheet" />
+        
+    </head>
+    
+    <body>
+        <div id="left" data-nav-area=".menu_nav">
+            <div id="artistes" class="menu_item menu_nav">Les Artistes</div>
+            <div id="concerts" class="menu_item menu_nav">Les Concerts</div>
+            <div id="menu_out" class="menu_nav"></div>
+        </div>
+        <div id="center" data-nav-area=".navigable">
+            <img class="loading" src="css/loading17.gif">
+        </div>      
+
+        <!-- === Frameworks === -->
+        <script src="libs/underscore/underscore.js" type="application/javascript"></script>
+        <script src="libs/jquery/2.1.1/jquery.min.js" type="application/javascript"></script>
+        <script src="libs/backbone.js/1.1.2/backbone.js"></script>
+        <script src="libs/r7extlib/r7extlib.js"></script>
+        <script src="libs/mickey/mickey.js"></script>
+        <script src="libs/resemblejs/resemble.js"></script>
+        <script src="libs/jquery.cookie/jquery.cookie.js"></script>
+        <script src="libs/transit/transit.min.js" type="application/javascript"></script>
+        <script src="js/fonctions.js"></script>
+
+        <!-- === Template === -->
+        <script type="text/template" id="program_template">
+
+            <div class="program" progid="<%= _id %>">
+                <div class="vignette" style="background-image: url('http://epg.canal-plus.com/mycanal/img/STD169/JPG/462X260/STD169_<%= image.toUpperCase() %>')">
+                    <p class="heure">
+                        <%if(jour == 'TODAY'){ %>
+                            <%= startDate %> - <%= endDate %>
+                        <% }
+                        else
+                        { %>
+                            <%= jour %>
+                        <% } %>
+
+                    </p>
+                </div>
+                <p>
+                    <%= titleLbl.toUpperCase() %><br>
+                    <span class="chaine"><%= chaine %></span>
+                </p>
+            </div>
+
+        </script>
+        <script type="text/template" id="planet_template">
+
+            <div id="<%= id %>" class="tag" style="
+                width: <%= masse*6 + 90 %>px;
+                height: <%= masse*6 + 90 %>px;
+                top: <%= x %>;
+                left: <%= y %>;
+                font-size: <%= masse/1.5 + 10 %>pt;
+                background-image: url('<%= image %>');
+                /*box-shadow: rgba(255, 255, 255, 0.47) 0 -<%= masse/4 %>px <%= masse %>px inset;*/
+                ">
+                <p tag="<%= tag %>">
+                    <%= tag.toUpperCase() %>
+                </p>
+            </div>
+
+        </script>
+        <script type="text/template" id="artist_item_template">
+
+            <div class="vignette" style="background-image: url('<%= image[3]['#text'] %>'); width: <%= scale*10 + 3 %>em; height: <%= scale*6 + 3 %>em;">
+            </div>
+            <p style="font-size:<%= scale*20 + 7 %>pt"
+                <%if(starred){ %>
+                    class="starred"
+                <% } %>
+            ><%= name %></p>
+            <div dicname="<%= dicName %>" class="action like"></div>
+            <div dicname="<%= dicName %>" class="action fiche"></div>
+
+        </script>
+        <script type="text/template" id="artist_fiche_template">
+            <div class="description_container clearfix">
+                <h1 class="artist_name"><%= name %></h1>
+                <p class="bio navigable"><img class="artist_pic" src="<%= image %>"><span class="resume"><%- resume %></span></p>
+            </div>
+            <div class="progs bddp"></div>
+            <div class="progs you"></div>
+        </script>
+        <script type="text/template" id="program_item_template">
+
+                <div class="vignette" id="<%= _id %>" style="background-image: url('<%= image %>')">
+                    <p class="heure">
+                        <%if(jour == 'TODAY'){ %>
+                            <%= startDate %> - <%= endDate %>
+                        <% }
+                        else
+                        { %>
+                            <%= jour %>
+                        <% } %>
+
+                    </p>
+                </div>
+                <p>
+                    <%= titleLbl.toUpperCase() %><br>
+                    <span class="chaine"><%= chaine %></span>
+                </p>
+
+        </script>
+        <script type="text/template" id="concert_item_template">
+
+                <div class="vignette" id="<%= progId %>" <%if(artistes.length == 1){ %>
+                    style="background-image: url('<%= artistes[0].image[3]['#text'] %>')"<% } %> >
+                    
+                    <%if(artistes.length == 2){ %>
+
+                    <div class="patchwork demiArtiste"
+                    style="background-image: url('<%= artistes[0].image[3]['#text'] %>')">
+                    </div>
+                    <div class="patchwork demiArtiste2"
+                    style="background-image: url('<%= artistes[1].image[3]['#text'] %>')">
+                    </div>
+
+                    <% } %>
+                    <%if(artistes.length >= 3){ %>
+
+                    <div class="patchwork demiArtiste"
+                    style="background-image: url('<%= artistes[0].image[3]['#text'] %>')">
+                    </div>
+                    <div class="patchwork quartArtiste"
+                    style="background-image: url('<%= artistes[1].image[3]['#text'] %>')">
+                    </div>
+                    <div class="patchwork quartArtiste"
+                    style="background-image: url('<%= artistes[2].image[3]['#text'] %>')">
+                    </div>
+
+                    <% } %>
+                    <div class="genres">
+                        <p><% for(var i=0; i<tags.length;i++){
+                            print(tags[i]+'   ');
+                        }%></p>
+                    </div>
+                    <p class="heure">
+                        <%if(jour == 'TODAY'){ %>
+                            <%= startDate %> - <%= endDate %>
+                        <% }
+                        else
+                        { %>
+                            <%= jour %> - <%= startDate %>
+                        <% } %>
+
+                    </p>
+                </div>
+                <p>
+                    <%= titre.substring(0, 22) %>...<br>
+                    <span class="chaine"><%= chaine %></span> <span><%= duree %></span>
+                </p>
+
+        </script>
+        <script type="text/template" id="youtube_item_template">
+
+            <div class="vignette" id="<%= _id %>" style="background-image: url('<%= thumbnails.high.url %>')">
+
+            </div>
+            <p>
+                <%= title %>
+            </p>
+
+        </script>
+        <script type="text/template" id="youtube_template" >
+
+            <div class="youtube_container">
+                <!--iframe class="youtube" width="77%" height="100%" src="http://www.youtube.com/embed/<%= _id %>?rel=0" frameborder="0" allowfullscreen></iframe-->
+            </div>
+            <div class="section">
+                <h1 class="titre navigable"><%= title %></h1>
+
+                <div class="progs youtube_progs">
+                    
+                </div>
+            </div>
+
+        </script>
+
+        <!-- === Application === -->
+        <script src="js/models/planet.js"></script>
+        <script src="js/models/artistItem.js"></script>
+        <script src="js/models/programme.js"></script>
+        <script src="js/models/artiste.js" type="application/javascript"></script>
+
+        <script src="js/collections/tags.js" type="application/javascript"></script>
+        <script src="js/collections/artistes.js" type="application/javascript"></script>
+        <script src="js/collections/programmes.js" type="application/javascript"></script>
+
+        <script src="js/views/programItem.js"></script>
+        <script src="js/views/artistItem.js"></script>
+        <script src="js/views/planet.js" type="application/javascript"></script>
+
+        <script src="js/views/youtube.js"></script>
+        <script src="js/views/artiste.js"></script>
+        <script src="js/views/artistes.js"></script>
+        <script src="js/views/programmes.js"></script>
+        <script src="js/views/tags.js" type="application/javascript"></script>
+        <script src="js/views/main.js"></script>
+
+        <script src="js/router.js"></script>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>
